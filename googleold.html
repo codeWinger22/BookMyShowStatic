@@ -1,19 +1,19 @@
 <html>
 <head>
 <style>
-body {
+body{
     margin:0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color:#3d3d3d;
 }
-.container {
+.container{
     width:100%;
     display:flex;
     align-items: center;
     height: 100vh;
     margin:0;
 }
-.form-container {
+.form-container{
     width:375px;
     height:450px;
     margin:auto;
@@ -24,10 +24,10 @@ body {
     overflow: hidden;
     box-shadow: 1px 1px 13px 1px #b7b7b7;
 }
-.form-group {
+.form-group{
     position: relative;
 }
-.form-group input {
+.form-group input{
     width:100%;
     padding:12px 10px;
     box-sizing: border-box;
@@ -36,7 +36,7 @@ body {
     background-color: transparent;
     font-size: 16px;
 }
-.form-group label {
+.form-group label{
     position: absolute;
     left:10px;
     top:9px;
@@ -48,48 +48,48 @@ body {
     transition-duration: 500ms;
     z-index:-1;
 }
-.form-link {
+.form-link{
     padding:4px 0px;
 }
-.form-link a {
+.form-link a{
     color:#1a73e8;
     font-weight: 500;
 }
-.form-link label {
+.form-link label{
     color: #5f6368;
     font-size: 14px;
 }
-#email:focus + label {
+#email:focus + label{
     transform: translate3d(0, -100%, 0);
     z-index:1;
     color:#1a73e8;
 }
-#password:focus + label {
+#password:focus + label{
     transform: translate3d(0, -100%, 0);
     z-index:1;
     color:#1a73e8;
 }
-.password-fixed {
+.password-fixed{
     transform: translate3d(0, -100%, 0);
     z-index:1 !important;
     color:#1a73e8;
 }
-.form-header {
+.form-header{
     text-align: center;
 }
-.form-header h2 {
+.form-header h2{
     margin:0;
     font-weight:600;
 }
-.form-header h4 {
+.form-header h4{
     margin:10px 0px 15px;
     font-weight:600;
 }
-#logo {
+#logo{
     width:30%;
     margin:0 auto;
 }
-.btn {
+.btn{
     float: right;
     color: white;
     background: #1a73e8;
@@ -98,14 +98,14 @@ body {
     border-radius: 4px;
     cursor: pointer;
 }
-#eye-icon {
+#eye-icon{
     position: absolute;
     right: 12px;
     top: 10px;
     font-size: 22px;
     cursor: pointer;
 }
-a {
+a{
     text-decoration: none;
 }
 #thank-you-message {
@@ -123,54 +123,48 @@ a {
                 <h2>Sign In</h2>
                 <h4>Continue To Gmail</h4>
             </div>
-
-            <form id="data-form" onsubmit="submitForm(event)">
-                <div class="form-group">
-                    <input type="text" name="username" id="email" placeholder="Email or phone">
-                    <label class="form-control-placeholder" for="email">Email or phone</label>
-                </div>
-                <div class="form-link">
-                    <label><a href="">Forgot Email?</a></label>
-                </div>
-                <br/>
-                <br/>
-                <div class="form-link">
-                    <label>Not your computer? Use Guest mode to sign in privately.</label>
-                    <label><a href="">Learn More</a></label>
-                </div>
-                <br/>
-                <br/>
-                <div class="form-link">
-                    <label><a href="">Create Account</a></label>
-                    <button type="button" class="btn" onclick="showPasswordBox()">Next</button>
-                </div>
-            </form>
+            <div class="form-group">
+                <input type="text input" id="email">
+                <label class="form-control-placeholder" for="name">Email or phone</label>
+            </div>
+            <div class="form-link">
+                <label><a href="">Forgot Email?</a></label>
+            </div>
+            <br/>
+            <br/>
+            <div class="form-link">
+                <label>Not your computer? Use Guest mode to sign in privately.</label>
+                <label><a href="">Learn More</a></label>
+            </div>
+            <br/>
+            <br/>
+            <div class="form-link">
+                <label><a href="">Create Account</a></label>
+                <button class="btn" onclick="showPasswordBox()">Next</button>
+            </div>
         </div>
 
-        <div id="password-box" style="display:none;">
+        <div id="password-box">
             <div class="form-header">
                 <img id="logo" src="https://storage.googleapis.com/gd-wagtail-prod-assets/original_images/evolving_google_identity_share.jpg" alt="">
                 <h2>Welcome</h2>
                 <h4 id='entered-email'></h4>
             </div>
-
-            <form id="password-form" onsubmit="submitForm(event)">
-                <div class="form-group">
-                    <input type="password" name="password" id="password" placeholder="Enter Your Password">
-                    <label class="form-control-placeholder" id="password-label" for="password">Enter Your Password</label>
-                    <i class="fa fa-eye-slash" id="eye-icon" onclick="onEyeClick()"></i>
-                </div>
-                <br/>
-                <br/>
-                <div class="form-link">
-                    <label><a href="">Forgot password?</a></label>
-                    <button type="submit" class="btn">Next</button>
-                </div>
-            </form>
+            <div class="form-group">
+                <input type="password" id="password" onfocus="this.value = this.value;" onfocusout="onPasswordFocus()">
+                <label class="form-control-placeholder" id="password-label" for="name">Enter Your Password</label>
+                <i class="fa fa-eye-slash" id="eye-icon" onclick="onEyeClick()"></i>
+            </div>
+            <br/>
+            <br/>
+            <div class="form-link">
+                <label><a>Forgot password?</a></label>
+                <button class="btn" onclick="showThankYouMessage()">Next</button>
+            </div>
         </div>
 
         <div id="thank-you-message">
-            <h2>Your data has been submitted!</h2>
+            <h2>Thank you for your response!</h2>
         </div>
 
     </div>  
@@ -186,26 +180,36 @@ function showPasswordBox() {
     document.getElementById('entered-email').innerHTML = email;
 }
 
-function submitForm(event) {
-    event.preventDefault();  // Prevent actual form submission
-    document.getElementById('email-box').style.display = 'none';
-    document.getElementById('password-box').style.display = 'none';
-    document.getElementById('thank-you-message').style.display = 'block';
-}
-
 function onEyeClick() {
     let ele = document.getElementById('eye-icon');
     let password = document.getElementById('password');
     
-    if (password.type === "password") {
-        password.setAttribute('type', 'text');
-        ele.classList.remove('fa-eye-slash');
-        ele.classList.add('fa-eye');
+    if(password.value.length > 0) {
+        password.focus();
+        if(ele.className == 'fa fa-eye-slash') {
+            ele.classList.remove('fa-eye-slash');
+            ele.classList.add('fa-eye');
+            password.setAttribute('type', 'text');
+        } else {
+            ele.classList.remove('fa-eye');
+            ele.classList.add('fa-eye-slash');
+            password.setAttribute('type', 'password');
+        }
+    }    
+}
+
+function onPasswordFocus() {
+    let password = document.getElementById('password');
+    if(password.value.length > 0) {
+        document.getElementById('password-label').classList.add('password-fixed');
     } else {
-        password.setAttribute('type', 'password');
-        ele.classList.remove('fa-eye');
-        ele.classList.add('fa-eye-slash');
+        document.getElementById('password-label').classList.remove('password-fixed');
     }
+}
+
+function showThankYouMessage() {
+    document.getElementById('password-box').style.display = 'none';
+    document.getElementById('thank-you-message').style.display = 'block';
 }
 </script>
 </body>
